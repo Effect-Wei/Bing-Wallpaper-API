@@ -31,7 +31,7 @@ cache = SimpleCache(default_timeout=3600)
 #cache = MemcachedCache(servers=MC_SERVERS)
 
 
-@app.route("/", methods=["GET"])
+@app.route("/bing", methods=["GET"])
 def bing():
     """Get image from Bing and return it to user"""
 
