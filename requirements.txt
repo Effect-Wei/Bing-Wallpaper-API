@@ -2,4 +2,3 @@ uwsgi
 Flask
 requests
 cachelib
-libmc

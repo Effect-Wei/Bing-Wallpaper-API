@@ -1,8 +1,8 @@
 import json
 import flask
 import requests
-#from cachelib import SimpleCache
-from cachelib import MemcachedCache
+from cachelib import SimpleCache
+#from cachelib import MemcachedCache
 
 
 BING_URL = "https://www.bing.com"
@@ -27,11 +27,11 @@ KNOWN_RESOLUTION = [
 
 app = flask.Flask(__name__)
 #app.config["DEBUG"] = True
-#cache = SimpleCache()
-cache = MemcachedCache(servers=MC_SERVERS)
+cache = SimpleCache(default_timeout=3600)
+#cache = MemcachedCache(servers=MC_SERVERS)
 
 
-@app.route("/bing", methods=["GET"])
+@app.route("/", methods=["GET"])
 def bing():
     """Get image from Bing and return it to user"""
 

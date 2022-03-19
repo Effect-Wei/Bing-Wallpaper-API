@@ -2,7 +2,7 @@
 
 ***一次请求直接获取 JPG 图像***
 
-![今日中国大陆区必应美图 @ 1080P](https://api.effects.space/bing "今日中国大陆区必应美图 @ 1080P")
+![今日中国大陆区必应美图 @ 1080P](https://api.effects.space/bing "今日中国大陆区必应美图")
 *今日中国大陆区必应美图 @ 1080P*
 
 ---
@@ -21,8 +21,8 @@
 
 GET https://api.effects.space/bing
 
->为了减少每个请求的等待时间，这里使用了 Memcache 作为缓存，最大刷新间隔为 60 分钟。  
->实际上也可以在源代码中改为使用 Cachelib 的 SimpleCache。
+>为了减少处理时间，这里使用了 `Cachelib` 的 `SimpleCache` 作为缓存，过期时间为 60 分钟。  
+>也可以在源代码中手动改为使用 `Memcached`，需用 `pip` 安装 `libmc`，详见[Cachelib文档](https://cachelib.readthedocs.io/en/stable/memcached/)。
 
 | Query String | Type   | Default | Definition                                     |
 | ------------ | ------ | ------- | ---------------------------------------------- |
@@ -40,7 +40,7 @@ GET https://api.effects.space/bing
 ```shell
 docker run -d -p 80:<外部端口> effectwei/bing-wallpaper-api:latest
 ```
-容器内默认使用`80`端口，可以在`uwsgi.ini`中更改。
+容器内 `HTTP 协议`默认使用 `80` 端口，`uwsgi 协议`默认使用 `81` 端口，可以在 `uwsgi.ini` 中更改。
 
 ---
 
